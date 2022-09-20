@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestNanoidService_RunGenerateRandomString(t *testing.T) {
+func TestNanoidService_RunGenerateRandomString2(t *testing.T) {
 	type fields struct {
 		nanoidRepo NanoidRepository
 	}
@@ -42,9 +42,7 @@ func TestNanoidService_RunGenerateRandomString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			ns := NanoidService{
-				nanoidRepo: tt.fields.nanoidRepo,
-			}
+			ns := NewNanoidService(tt.fields.nanoidRepo)
 			if _, ok := ns.RunGenerateRandomString(); !reflect.DeepEqual(ok, tt.want) {
 				t.Errorf("NanoidService.RunGenerateRandomString() = %v, want %v", ok, tt.want)
 			}

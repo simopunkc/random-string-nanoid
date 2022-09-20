@@ -22,7 +22,8 @@ func main() {
 	for i := 0; i < input; i++ {
 		randomObj, ok := serviceNano.RunGenerateRandomString()
 		if ok {
-			fmt.Println(randomObj.Value)
+			response := fmt.Sprintf("%d : %s", (i + 1), randomObj.Value)
+			fmt.Println(response)
 		} else {
 			fmt.Println("failed generate random string")
 			break
